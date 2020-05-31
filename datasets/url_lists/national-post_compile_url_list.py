@@ -1,9 +1,9 @@
 import requests
 
-url_list_file = open('../url_lists/national-post_urls.txt', "w")
+url_list_file = open('national-post_urls.txt', "w")
 
 
-with open('meta_url_list.txt') as f:
+with open('national-post_meta_url_list.txt') as f:
 	lines = f.read().split('\n')
 
 	for i, url_str in enumerate(lines):

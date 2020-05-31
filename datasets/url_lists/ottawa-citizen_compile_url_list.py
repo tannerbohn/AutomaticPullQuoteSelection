@@ -1,9 +1,11 @@
 import requests
 
-url_list_file = open('../url_lists/cosmo_urls.txt', "w")
+#r = requests.get("https://ottawacitizen.com/sitemap.xml")
+
+url_list_file = open('ottawa-citizen_urls.txt', "w")
 
 
-with open('meta_url_list.txt') as f:
+with open('ottawa-citizen_meta_url_list.txt') as f:
 	lines = f.read().split('\n')
 
 	for i, url_str in enumerate(lines):
@@ -14,7 +16,7 @@ with open('meta_url_list.txt') as f:
 
 		parts = xml.split('<loc>')[1:]
 
-		urls = [p.split('</loc>')[0] for p in parts]
+		urls = [p.split('</loc><')[0] for p in parts]
 		print("\n {}".format(len(urls)))
 		url_list_file.write('\n'.join(urls)+'\n')
 

@@ -1,12 +1,9 @@
 import requests
-r = requests.get("https://ottawacitizen.com/sitemap.xml")
 
-from bs4 import BeautifulSoup
-
-url_list_file = open('../url_lists/ottawa-citizen_urls.txt', "w")
+url_list_file = open('cosmo_urls.txt', "w")
 
 
-with open('meta_url_list.txt') as f:
+with open('cosmo_meta_url_list.txt') as f:
 	lines = f.read().split('\n')
 
 	for i, url_str in enumerate(lines):
@@ -17,7 +14,7 @@ with open('meta_url_list.txt') as f:
 
 		parts = xml.split('<loc>')[1:]
 
-		urls = [p.split('</loc><')[0] for p in parts]
+		urls = [p.split('</loc>')[0] for p in parts]
 		print("\n {}".format(len(urls)))
 		url_list_file.write('\n'.join(urls)+'\n')
 

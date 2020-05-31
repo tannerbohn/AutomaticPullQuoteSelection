@@ -3,6 +3,24 @@ _Learning_ to automatically select good pull quotes.
 
 :construction: This code accompanies the paper [Catching Attention with Automatic Pull Quote Selection](https://arxiv.org/abs/2005.13263).
 
+## Requirements
+This project is written in Python3.6.9
+
+The following non-default libraries are used:
+* numpy 1.18.2
+* sklearn 0.22.2.post1
+* seaborn 0.9.0
+* matplotlib 3.1.2
+* scipy 1.4.1
+* keras 2.3.0
+* tensorflow 1.14.0
+* sumy 0.8.1
+* nltk 3.4.5
+* textstat 0.6.0
+* textblob 0.15.3
+* sentence_transformers 0.2.5
+
+
 ## Preparing the dataset
 To reproduce our dataset:
 1. navigate to the `datasets/url_lists/` directory and unzip `url_lists.zip` so that the 4 files are in `datasets/url_lists/`

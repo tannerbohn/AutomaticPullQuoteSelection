@@ -1,7 +1,7 @@
 # Automatic Pull Quote Selection
 _Learning_ to automatically select pull quotes [(wikipedia)](https://en.wikipedia.org/wiki/Pull_quote).
 
-:construction: This code accompanies the paper [Catching Attention with Automatic Pull Quote Selection](https://arxiv.org/abs/2005.13263).
+This code accompanies the paper [Catching Attention with Automatic Pull Quote Selection](https://arxiv.org/abs/2005.13263).
 
 ## Requirements
 This project is written in Python3.6.9

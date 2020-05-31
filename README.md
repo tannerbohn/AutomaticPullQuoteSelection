@@ -4,7 +4,9 @@ _Learning_ to automatically select good pull quotes.
 :construction: This code will accompany the paper [Catching Attention with Automatic Pull Quote Selection](https://arxiv.org/abs/2005.13263).
 
 ## Preparing the dataset
-To reproduce our dataset, run `python3.6 construct_dataset.py my_save_dir/`. This saves the prepared data in `my_save_dir/`.
+To reproduce our dataset, navigate to the `datasets/` directory and run `python3.6 construct_dataset.py source my_save_dir/`.
+* source can be one of `intercept`, `ottawa-citizen`, `cosmo`, `national-post`, or `all`
+* the samples for a given source will be stored in `my_save_dir/source/`
 
 :warning: Update `settings.py` so that `PQ_SAMPLES_DIRS` points to the appropriate locations.
 

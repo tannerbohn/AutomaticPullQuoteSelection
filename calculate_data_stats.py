@@ -32,7 +32,12 @@ source_grouped_articles['train'] = train_articles
 source_grouped_articles['val'] = val_articles
 source_grouped_articles['test'] = test_articles
 
-for group in source_grouped_articles.keys():
+print("\t# articles\t# PQ\t# PQ/article\t# sentences/PQ\t# sentences/article\t# pos samples\t# neg samples")
+
+group_list = list(source_grouped_articles.keys())
+group_list.remove('all'); group_list.append('all')
+
+for group in group_list:
 	articles = source_grouped_articles[group]
 
 	total_nb_articles = len(articles)

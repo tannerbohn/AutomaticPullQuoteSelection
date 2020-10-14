@@ -134,7 +134,7 @@ def parse_pq_file(text):
 
 		all_sec_data['edited_pqs'].append([l[3:] for l in edited_pq_text.strip().split("\n")])
 
-		source_sentences = [l[3:] for l in source_pq_text.strip().split("\n")]
+		source_sentences = [l[3:].strip() for l in source_pq_text.strip().split("\n")]
 		
 		inclusions = []
 		clean_sentences = []

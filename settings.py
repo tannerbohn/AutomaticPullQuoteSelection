@@ -14,18 +14,21 @@ AFFECT_FNAME 		= "datasets/word_sets/Ratings_Warriner_et_al.csv"
 EASY_WORDS_FNAME	= "datasets/word_sets/easy_words.txt"
 
 
-PRECOMPUTED_SBERT_EMBEDDINGS_FNAME = None
+PRECOMPUTED_SBERT_EMBEDDINGS_FNAME = "/home/tanner/ml_data/precomputed_pq_sentbert.pkl" #None
 #if not os.path.exists(PRECOMPUTED_SBERT_EMBEDDINGS_FNAME):
 #	PRECOMPUTED_SBERT_EMBEDDINGS_FNAME = None
 
-base_pq_directory = "directory_to_data/"
+PRECOMPUTED_HANDCRAFTED_EMBEDDINGS_FNAME = "/home/tanner/ml_data/precomputed_handcrafted_embeddings.pkl"
+
+base_pq_directory = "/home/tanner/ml_data/PullQuotes/"
+
 assert base_pq_directory != "directory_to_data/"
 
 PQ_SAMPLES_DIRS		= [
 	f"{base_pq_directory}national-post/", 
-	f"{base_pq_directory}intercept/"
+	f"{base_pq_directory}intercept/",
 	f"{base_pq_directory}ottawa-citizen/", 
-	f"{base_pq_directory}cosmo/"
+	f"{base_pq_directory}cosmo/",
 ]
 
 	

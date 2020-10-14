@@ -59,7 +59,6 @@ results_file.flush()
 
 
 
-
 print("Running summarizer experiment...")
 for name in ["LexRankSummarizer", "SumBasicSummarizer", "KLSummarizer", "TextRankSummarizer"]:
 	model = SummarizerPQModel(name=name)

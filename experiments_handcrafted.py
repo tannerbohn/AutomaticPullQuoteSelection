@@ -23,17 +23,20 @@ if quick_mode:
 
 
 articles_data = preprocess_pull_quotes(directories=settings.PQ_SAMPLES_DIRS)
-if quick_mode: articles_data = articles_data[:100]
+if quick_mode: articles_data = articles_data[:1000]
 
 train_articles, val_articles, test_articles = get_article_partition(articles_data, train_frac=0.7, val_frac=0.1, test_frac=0.2, seed=1337, verbose=1)
 
 E = Evaluator()
 
 
-sent_encoder = HandcraftedEncoder()
-print("precomputing sentence features...")
-sent_encoder.precompute(train_articles+val_articles+test_articles)
-print("done")
+if settings.PRECOMPUTED_HANDCRAFTED_EMBEDDINGS_FNAME != None:
+	sent_encoder = HandcraftedEncoder(precomputed_embeddings=settings.PRECOMPUTED_HANDCRAFTED_EMBEDDINGS_FNAME)
+else:
+	sent_encoder = HandcraftedEncoder()
+	print("precomputing sentence features...")
+	sent_encoder.precompute(train_articles+val_articles+test_articles)
+	print("done")
 
 
 
@@ -47,7 +50,7 @@ chosen_features = []
 
 max_val_score = 0
 
-while True:
+while len(chosen_features) < 1:
 	best_val = 0.
 	best_feature = None
 
@@ -81,7 +84,5 @@ while True:
 
 	if len(chosen_features) >= len(feature_list):
 		break
-
-		
 
 results_file.close()

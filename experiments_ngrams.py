@@ -4,7 +4,7 @@ import argparse
 
 from sklearn.linear_model import LogisticRegression
 
-from models.sentence_encoders import NGramEncoder
+from models.sentence_encoders import NGramEncoder, PositionalNGramEncoder
 from models.SimplePQModel import SimplePQModel
 
 import settings
@@ -22,7 +22,7 @@ if quick_mode:
 
 
 articles_data = preprocess_pull_quotes(directories=settings.PQ_SAMPLES_DIRS)
-if quick_mode: articles_data = articles_data[:100]
+if quick_mode: articles_data = articles_data[:1000]
 
 train_articles, val_articles, test_articles = get_article_partition(articles_data, train_frac=0.7, val_frac=0.1, test_frac=0.2, seed=1337, verbose=1)
 
@@ -35,7 +35,9 @@ results_file = open("results/ngrams_{}.txt".format(timestamp), "w")
 feature_rankings = dict()
 
 
-for mode, n, vocab_size in itertools.product(["char", "word", "pos"], [1, 2, 3], [1000]):
+
+
+for mode, n, vocab_size in itertools.product(["char", "word"], [1, 2, 3], [1000]):
 	sent_encoder = NGramEncoder(mode=mode, n=n, store_results=False, vocab_size=vocab_size)
 	print("preparing encoder...")
 	sent_encoder.fit(train_articles)

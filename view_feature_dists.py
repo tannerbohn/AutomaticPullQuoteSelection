@@ -2,6 +2,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 from scipy import stats
+from tqdm import tqdm
 
 import random
 
@@ -49,9 +50,9 @@ non_pq_encs = []
 
 nb_samples = len(articles_data) #2000
 print("Computing sentence features...")
-for i_article, article in enumerate(articles_data[:nb_samples]):
-	if i_article % 100 == 0:
-		print("{:.2f}%".format(100*i_article/nb_samples))	
+for i_article, article in enumerate(tqdm(articles_data[:nb_samples])):
+	#if i_article % 100 == 0:
+	#	print("{:.2f}%".format(100*i_article/nb_samples))	
 	for sentence, inclusion in zip(article['sentences'], article['inclusions']):
 		enc = sent_encoder.encode(sentence, document=article['sentences'])
 		if inclusion == 0:
@@ -67,11 +68,10 @@ pq_encs = np.array(pq_encs)
 non_pq_encs = np.array(non_pq_encs)
 
 feature_list = [
-	("Quote_count", (-1, 6)),
 	("Len_total", (-10, 400)),
 	("Sent_position", None),
+	("Quote_count", (-1, 6)),
 	("R_Flesch", (-50, 150)),
-	("R_CLI", (-10, 30)),
 	("R_difficult", (-5, 120)),
 	("Len_word_avg", (0, 10)),
 	("POS_CD", (-10, 20)),

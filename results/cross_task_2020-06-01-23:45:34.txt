@@ -1,0 +1,6 @@
+clickbait	63.8
+headline_popularity	56.9
+LexRankSummarizer	51.9
+SumBasicSummarizer	44.9
+KLSummarizer	55.1
+TextRankSummarizer	55.9

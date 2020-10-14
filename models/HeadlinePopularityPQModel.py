@@ -26,6 +26,7 @@ class HeadlinePopularityPQModel:
 		titles = []
 		scores = []
 		for i_t, (title, score_f, score_g, score_l) in enumerate(zip(article_titles, facebook_scores, googleplus_scores, linkedin_scores)):
+			title = str(title)
 			if i_t % 1000 == 0:
 				print("{:.3f}%".format(100*i_t/len(article_titles)))
 
